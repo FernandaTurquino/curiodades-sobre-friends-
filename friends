@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curiosidades sobre Friends ☕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f1ea;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #bf2d2d;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            border-bottom: 5px solid #f2b705;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .dots {
+            letter-spacing: 5px;
+            color: #f2b705;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .banner {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            margin-bottom: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.2rem;
+        }
+
+        .card-content h3 {
+            color: #bf2d2d;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #222;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: #f2b705;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>F<span class="dots">•</span>R<span class="dots">•</span>I<span class="dots">•</span>E<span class="dots">•</span>N<span class="dots">•</span>D<span class="dots">•</span>S</h1>
+        <p>Curiosidades incríveis sobre a sitcom mais amada do mundo!</p>
+    </header>
+
+    <div class="container">
+        <img class="banner" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Cafeteria parecida com o Central Perk">
+
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=500&q=80" alt="Café Central Perk">
+                <div class="card-content">
+                    <h3>☕ O sofá do Central Perk</h3>
+                    <p>O famoso sofá laranja onde a turma se reunia foi encontrado jogado no porão dos estúdios da Warner Bros!</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" alt="Café expresso">
+                <div class="card-content">
+                    <h3>🎬 Nomes diferentes</h3>
+                    <p>Antes de definir o nome como <i>Friends</i>, a série quase se chamou <i>Insomnia Cafe</i>, <i>Friends Like Us</i> e <i>Six of One</i>.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80" alt="Luzes de estúdio">
+                <div class="card-content">
+                    <h3>🤫 Moldura no olho mágico</h3>
+                    <p>A moldura amarela na porta da Monica era originalmente um espelho que um funcionário quebrou sem querer. A produção gostou e deixou lá!</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80" alt="Música">
+                <div class="card-content">
+                    <h3>🎵 A música de abertura</h3>
+                    <p>A música "I'll Be There for You", da banda The Rembrandts, foi escrita junto com os criadores da série e alcançou o topo das paradas americanas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Desenvolvido para o GitHub Pages | "I'll be there for you!" 🟡🔴🔵</p>
+    </footer>
+
+</body>
+</html>
