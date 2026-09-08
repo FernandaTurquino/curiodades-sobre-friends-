@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Friends | The One With The Website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --roxo: #5b2c83;
+            --roxo-escuro: #30154d;
+            --amarelo: #f4c542;
+            --laranja: #e8753b;
+            --creme: #fff8ed;
+            --texto: #292331;
+            --branco: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--creme);
+            color: var(--texto);
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(48, 21, 77, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(244, 197, 66, .3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--amarelo);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--amarelo);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(48, 21, 77, .80),
+                    rgba(48, 21, 77, .90)
+                ),
+                url("https://www.ecartelera.com/images/sets/35600/35609.jpg")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding: 30px;
+            animation: aparecer 1.2s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(60px, 12vw, 150px);
+            line-height: .9;
+            font-weight: 800;
+            letter-spacing: -5px;
+        }
+
+        .hero h1 span {
+            color: var(--amarelo);
+        }
+
+        .hero p {
+            margin: 30px auto;
+            max-width: 650px;
+            font-size: 18px;
+            color: #eee;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--amarelo);
+            color: var(--roxo-escuro);
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(244, 197, 66, .35);
+        }
+
+        /* ================= SEÇÕES ================= */
+
+        section {
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .titulo small {
+            color: var(--laranja);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .titulo h2 {
+            font-size: clamp(35px, 5vw, 55px);
+            color: var(--roxo-escuro);
+            margin-top: 8px;
+        }
+
+        /* ================= SOBRE ================= */
+
+        .sobre {
+            background: white;
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sobre-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(48, 21, 77, .18);
+        }
+
+        .sobre-texto p {
+            line-height: 1.9;
+            margin-bottom: 18px;
+            color: #5f5968;
+        }
+
+        .info-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .info {
+            background: var(--creme);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid var(--amarelo);
+        }
+
+        .info strong {
+            display: block;
+            color: var(--roxo);
+        }
+
+        /* ================= PERSONAGENS ================= */
+
+        .personagens {
+            background: #f4ecf9;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(48, 21, 77, .08);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(48, 21, 77, .15);
+        }
+
+        .avatar {
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 70px;
+            background: var(--roxo);
+        }
+
+        .card:nth-child(2) .avatar,
+        .card:nth-child(5) .avatar {
+            background: var(--laranja);
+        }
+
+        .card:nth-child(3) .avatar,
+        .card:nth-child(6) .avatar {
+            background: #e7b83d;
+        }
+
+        .card-content {
+            padding: 22px;
+        }
+
+        .card h3 {
+            color: var(--roxo-escuro);
+            font-size: 23px;
+        }
+
+        .card .ator {
+            color: var(--laranja);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        /* ================= CENTRAL PERK ================= */
+
+        .central {
+            background:
+                linear-gradient(rgba(48,21,77,.87), rgba(48,21,77,.95)),
+                url("https://media.architecturaldigest.com/photos/5dc05acaee6f050008f48cf1/master/w_1600%2Cc_limit/Friends.jpg")
+                center/cover fixed;
+            color: white;
+            text-align: center;
+        }
+
+        .central .titulo h2 {
+            color: white;
+        }
+
+        .central-content {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .sofa {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .central p {
+            line-height: 1.9;
+            color: #ddd;
+        }
+
+        .quote {
+            margin-top: 35px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 15px;
+            background: rgba(255,255,255,.07);
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* ================= TEMPORADAS ================= */
+
+        .temporadas {
+            background: white;
+        }
+
+        .temporadas-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .temporada {
+            background: var(--roxo-escuro);
+            color: white;
+            padding: 25px 10px;
+            border-radius: 12px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .temporada:hover {
+            background: var(--laranja);
+            transform: scale(1.05);
+        }
+
+        .temporada span {
+            display: block;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        /* ================= CURIOSIDADES ================= */
+
+        .curiosidades {
+            background: var(--creme);
+        }
+
+        .curiosidades-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .curiosidade {
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            border-top: 5px solid var(--amarelo);
+        }
+
+        .curiosidade .icone {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .curiosidade h3 {
+            margin-bottom: 10px;
+            color: var(--roxo);
+        }
+
+        .curiosidade p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ================= FINAL ================= */
+
+        .final {
+            background: var(--roxo-escuro);
+            color: white;
+            text-align: center;
+        }
+
+        .final h2 {
+            font-size: clamp(35px, 6vw, 65px);
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background: #1b0b2b;
+            color: #aaa;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        /* ================= ANIMAÇÕES ================= */
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= RESPONSIVO ================= */
+
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .sobre-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .curiosidades-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .temporadas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            section {
+                padding: 75px 18px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .info-box {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">F<span>R</span>IENDS</div>
+
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#personagens">Personagens</a></li>
+            <li><a href="#central">Central Perk</a></li>
+            <li><a href="#temporadas">Temporadas</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>FRI<span>EN</span>DS</h1>
+
+        <p>
+            Seis amigos. Dez temporadas. Centenas de momentos
+            inesquecíveis. Bem-vindo ao universo de Friends.
+        </p>
+
+        <a href="#sobre" class="btn">
+            Explorar o universo
+        </a>
+
+    </div>
+
+</section>
+
+<!-- SOBRE -->
+
+<section class="sobre" id="sobre">
+
+    <div class="container">
+
+        <div class="titulo">
+            <small>A série</small>
+            <h2>Sobre Friends</h2>
+        </div>
+
+        <div class="sobre-grid">
+
+            <img
+                class="sobre-img"
+                src="https://www.ecartelera.com/images/sets/35600/35609.jpg"
+                alt="Personagens de Friends no Central Perk"
+            >
+
+            <div class="sobre-texto">
+
+                <p>
+                    <strong>Friends</strong> é uma sitcom americana criada
+                    por David Crane e Marta Kauffman. A série acompanha
+                    seis amigos que vivem em Nova York e enfrentam juntos
+                    relacionamentos, trabalho, família e todas as situações
+                    absurdas da vida adulta.
+                </p>
+
+                <p>
+                    Rachel, Ross, Monica, Chandler, Joey e Phoebe transformaram
+                    sua amizade em uma das histórias mais conhecidas da
+                    televisão.
+                </p>
+
+                <div class="info-box">
+
+                    <div class="info">
+                        <strong>📅 Estreia</strong>
+                        22 de setembro de 1994
+                    </div>
+
+                    <div class="info">
+                        <strong>🎬 Episódios</strong>
+                        236 episódios
+                    </div>
+
+                    <div class="info">
+                        <strong>📺 Temporadas</strong>
+                        10 temporadas
+                    </div>
+
+                    <div class="info">
+                        <strong>📍 Local</strong>
+                        Nova York
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PERSONAGENS -->
+
+<section class="personagens" id="personagens">
+
+    <div class="container">
+
+        <div class="titulo">
+            <small>A turma</small>
+            <h2>Os seis amigos</h2>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="avatar">👩🏻</div>
+                <div class="card-content">
+                    <h3>Rachel Green</h3>
+                    <div class="ator">Jennifer Aniston</div>
+                    <p>
+                        Rachel começa a série deixando seu casamento
+                        para trás e descobrindo sua independência.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="avatar">👨🏻</div>
+                <div class="card-content">
+                    <h3>Ross Geller</h3>
+                    <div class="ator">David Schwimmer</div>
+                    <p>
+                        Paleontólogo apaixonado por dinossauros,
+                        Ross é irmão de Monica e vive uma complicada
+                        história com Rachel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="avatar">👩🏻‍🦰</div>
+                <div class="card-content">
+                    <h3>Monica Geller</h3>
+                    <div class="ator">Courteney Cox</div>
+                    <p>
+                        Organizada, competitiva e extremamente
+                        apaixonada por limpeza, Monica é a anfitriã
+                        oficial do grupo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="avatar">👨🏻‍💼</div>
+                <div class="card-content">
+                    <h3>Chandler Bing</h3>
+                    <div class="ator">Matthew Perry</div>
+                    <p>
+                        Conhecido pelo sarcasmo e pelas piadas,
+                        Chandler usa o humor para lidar com as
+                        situações da vida.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="avatar">👨🏻</div>
+                <div class="card-content">
+                    <h3>Joey Tribbiani</h3>
+                    <div class="ator">Matt LeBlanc</div>
+                    <p>
+                        Ator, apaixonado por comida e dono do famoso
+                        "How you doin'?", Joey é o mais ingênuo e
+                        carismático da turma.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="avatar">👩🏻</div>
+                <div class="card-content">
+                    <h3>Phoebe Buffay</h3>
+                    <div class="ator">Lisa Kudrow</div>
+                    <p>
+                        Excêntrica, divertida e imprevisível,
+                        Phoebe é cantora, compositora e dona de
+                        algumas das histórias mais malucas da série.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CENTRAL PERK -->
+
+<section class="central" id="central">
+
+    <div class="container">
+
+        <div class="titulo">
+            <small>O lugar mais famoso de Manhattan</small>
+            <h2>Central Perk ☕</h2>
+        </div>
+
+        <div class="central-content">
+
+            <div class="sofa">🛋️</div>
+
+            <p>
+                O Central Perk é a cafeteria onde os seis amigos passam
+                grande parte do tempo. O famoso sofá laranja se tornou
+                um dos maiores símbolos da série.
+            </p>
+
+            <div class="quote">
+                "Could I BE wearing any more clothes?"
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TEMPORADAS -->
+
+<section class="temporadas" id="temporadas">
+
+    <div class="container">
+
+        <div class="titulo">
+            <small>Do começo ao fim</small>
+            <h2>10 temporadas</h2>
+        </div>
+
+        <div class="temporadas-grid">
+
+            <div class="temporada">
+                Temporada
+                <span>01</span>
+            </div>
+
+            <div class="temporada">
+                Temporada
+                <span>02</span>
+            </div>
+
+            <div class="temporada">
+                Temporada
+                <span>03</span>
+            </div>
+
+            <div class="temporada">
+                Temporada
+                <span>04</span>
+            </div>
+
+            <div class="temporada">
+                Temporada
+                <span>05</span>
+            </div>
+
+            <div class="temporada">
+                Temporada
+                <span>06</span>
+            </div>
+
+            <div class="temporada">
+                Temporada
+                <span>07</span>
+            </div>
+
+            <div class="temporada">
+                Temporada
+                <span>08</span>
+            </div>
+
+            <div class="temporada">
+                Temporada
+                <span>09</span>
+            </div>
+
+            <div class="temporada">
+                Temporada
+                <span>10</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CURIOSIDADES -->
+
+<section class="curiosidades" id="curiosidades">
+
+    <div class="container">
+
+        <div class="titulo">
+            <small>Você sabia?</small>
+            <h2>Curiosidades</h2>
+        </div>
+
+        <div class="curiosidades-grid">
+
+            <div class="curiosidade">
+                <div class="icone">🦖</div>
+                <h3>Ross e os dinossauros</h3>
+                <p>
+                    Ross trabalha como paleontólogo e sua paixão
+                    por dinossauros aparece diversas vezes durante
+                    a série.
+                </p>
+            </div>
+
+            <div class="curiosidade">
+                <div class="icone">🦞</div>
+                <h3>Você é minha lagosta</h3>
+                <p>
+                    A famosa ideia da "lagosta" se tornou uma das
+                    frases mais lembradas pelos fãs de Friends.
+                </p>
+            </div>
+
+            <div class="curiosidade">
+                <div class="icone">🍕</div>
+                <h3>Joey não divide comida</h3>
+                <p>
+                    Uma das características mais famosas de Joey
+                    é seu amor incondicional por comida.
+                </p>
+            </div>
+
+            <div class="curiosidade">
+                <div class="icone">🎸</div>
+                <h3>Smelly Cat</h3>
+                <p>
+                    Phoebe é responsável por algumas das músicas
+                    mais estranhas e divertidas da série.
+                </p>
+            </div>
+
+            <div class="curiosidade">
+                <div class="icone">🧹</div>
+                <h3>Monica ama organização</h3>
+                <p>
+                    A personalidade extremamente organizada de
+                    Monica gera muitos momentos engraçados.
+                </p>
+            </div>
+
+            <div class="curiosidade">
+                <div class="icone">😂</div>
+                <h3>Humor e amizade</h3>
+                <p>
+                    A série mistura comédia, romance e amizade,
+                    acompanhando os personagens durante diferentes
+                    fases da vida.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final">
+
+    <div class="container">
+
+        <h2>I'll be there for you. 💜</h2>
+
+        <p>
+            Porque, no final das contas, amigos são a família que
+            escolhemos.
+        </p>
+
+        <a href="#inicio" class="btn">Voltar ao topo</a>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        Site de fã criado para fins educacionais.
+    </p>
+
+    <p>
+        FRIENDS™ © Warner Bros. Entertainment Inc.
+    </p>
+
+</footer>
+
+</body>
+</html>
